@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- saved from url=(0157)https://pippio.com/api/sync?pid=1391&ref=https%3A%2F%2Fsung.codes%2Fblog%2F2017%2F09%2F09%2Fpassing-api-key-heroku-node-application%2F&it=1&iv=c125n7gjfh9ei4 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><meta name="referrer" content="no-referrer"><script>
+		var f = function () {
+	function loadChains(chains, limit, onChainDone) {
+    function newImageLoader(url) {
+        return function () {
+            var e = new Image();
+            addListeners(e);
+            e.src = url;
+        };
+    }
+
+    function newScriptLoader(url) {
+        return function () {
+            var e = document.createElement('script');
+            e.type = 'text/javascript';
+            e.async = true;
+            addListeners(e);
+            e.src = url;
+            document.head.appendChild(e);
+        };
+    }
+
+    function newIframeLoader(url) {
+        return function () {
+            var e = document.createElement('iframe');
+            e.style.display = 'none';
+            e.width = 1;
+            e.height = 1;
+            addListeners(e);
+            e.src = url;
+            document.body.appendChild(e);
+        };
+    }
+
+    function addListeners(e) {
+        addLoadErrorListeners(e, loadNext);
+        if (typeof onChainDone === 'function') {
+            addLoadErrorListeners(e, onChainDone);
+        }
+    }
+
+    function addLoadErrorListeners(e, listener) {
+        if (typeof e.addEventListener === 'function') {
+            e.addEventListener('load', listener, false);
+            e.addEventListener('error', listener, false);
+        } else if (typeof e.attachEvent === 'function') {
+            e.attachEvent('onload', listener);
+            e.attachEvent('onerror', listener);
+        }
+    }
+
+    function loadNext() {
+        var next = loaders.shift();
+        if (typeof next === "function") {
+            setTimeout(next);
+        }
+    }
+
+    var loaders = chains.reduce(function (acc, value) {
+        var mode = value[0];
+        var url = value[1];
+
+        switch (mode) {
+            case 'image':
+                acc.push(newImageLoader(url));
+                break;
+            case 'script':
+                acc.push(newScriptLoader(url));
+                break;
+            case 'iframe':
+                acc.push(newIframeLoader(url));
+                break;
+        }
+        return acc;
+    }, []);
+
+    for (var i = 0; i < limit; i++) {
+        loadNext();
+    }
+}
+
+	var chains = [];
+	chains.push(['image', 'https://idsync.rlcdn.com/462246.gif?partner_uid=c125n7gjfh9ei4']);
+	chains.push(['image', 'https://ei.rlcdn.com/448046.gif?n=1&pdata=placement%3D1391']);
+	chains.push(['image', 'https://e.dlx.addthis.com/e/a-1137/s-7715?ret=img&na_em=1fbeca9c5794caef0e5209e9741e34d226c3f7e1&na_em=d2c0461cbee9fb5ade6ec18c53fb25aaddb3896b&na_em=7cd2f486fd0681225931fb644f0f2c46bb9fc114&na_em=22d35ffac0c0b12b6599d3326ffea26e14216b58&na_em=ac9959197d8fa09f2bbc74389c97abd7bc8d97e4&na_ci=DT-9bja54dTyJ2d4vLVa364BtQ&na_sp=7359']);
+	chains.push(['image', 'https://aa.agkn.com/adscores/s.pixel?sid=9102279158&em=1fbeca9c5794caef0e5209e9741e34d226c3f7e1']);
+	chains.push(['image', 'https://mid.rkdms.com/bct?pid=66326baa-c2c7-4867-94c1-ae2533db593b&_ct=img&e_sh1=1fbeca9c5794caef0e5209e9741e34d226c3f7e1&e_sh2=1db18f06e757ac9188137ac8bc89b83dc175b2c1813dcf302f14c81db4a8e4ff&e_md5=74a0c4f1c8c0fcc59232cc00db1b6415']);
+	chains.push(['image', 'https://tr.snapchat.com/cs/r?u_hem=1db18f06e757ac9188137ac8bc89b83dc175b2c1813dcf302f14c81db4a8e4ff&u_hems=%5B%7B%22u_hem%22%3A%221db18f06e757ac9188137ac8bc89b83dc175b2c1813dcf302f14c81db4a8e4ff%22%2C%22pub_id%22%3A%222166%22%7D%2C%7B%22u_hem%22%3A%2245fd17ee0e8dadbe327c04fbe5241a0e8d17c21fef66d16d408d9de0515e7860%22%2C%22pub_id%22%3A%223305%22%7D%2C%7B%22u_hem%22%3A%22678626d0d2756f6167c45a985b65c3415f787cfb510b9473b5fa48553e4f673a%22%2C%22pub_id%22%3A%2215666%22%7D%2C%7B%22u_hem%22%3A%221ce7fe5d391cd7c713564c2434cc61cb3b8df786b5085b71739e05fb372afe33%22%2C%22pub_id%22%3A%222166%22%7D%5D']);
+	chains.push(['image', 'https://p.alocdn.com/c/2973/m/ac794ede35c069b8d7aae8889eed5940/s/1fbeca9c5794caef0e5209e9741e34d226c3f7e1/d/n/p.gif']);
+	chains.push(['image', 'https://pixel.sojern.com/idsync/lr?&md5=74a0c4f1c8c0fcc59232cc00db1b6415&md5=ef98e45ed328f544e2c6e22310bed01b&md5=1ac4b4e53661997aa3ef198e6e84d7da&md5=8e86be89cf255af1c2986c4af9bb9952&md5=ac794ede35c069b8d7aae8889eed5940&sha1=1fbeca9c5794caef0e5209e9741e34d226c3f7e1&sha1=d2c0461cbee9fb5ade6ec18c53fb25aaddb3896b&sha1=7cd2f486fd0681225931fb644f0f2c46bb9fc114&sha1=22d35ffac0c0b12b6599d3326ffea26e14216b58&sha1=ac9959197d8fa09f2bbc74389c97abd7bc8d97e4&sha256=1db18f06e757ac9188137ac8bc89b83dc175b2c1813dcf302f14c81db4a8e4ff&sha256=45fd17ee0e8dadbe327c04fbe5241a0e8d17c21fef66d16d408d9de0515e7860&sha256=678626d0d2756f6167c45a985b65c3415f787cfb510b9473b5fa48553e4f673a&sha256=1ce7fe5d391cd7c713564c2434cc61cb3b8df786b5085b71739e05fb372afe33']);
+	chains.push(['image', 'https://idx.listrakbi.com/1/xv3sl1/pixel.gif?v=1&md5=ac794ede35c069b8d7aae8889eed5940&md5=74a0c4f1c8c0fcc59232cc00db1b6415&md5=ef98e45ed328f544e2c6e22310bed01b&md5=1ac4b4e53661997aa3ef198e6e84d7da&md5=8e86be89cf255af1c2986c4af9bb9952&sha1=d2c0461cbee9fb5ade6ec18c53fb25aaddb3896b&sha1=7cd2f486fd0681225931fb644f0f2c46bb9fc114&sha1=22d35ffac0c0b12b6599d3326ffea26e14216b58&sha1=ac9959197d8fa09f2bbc74389c97abd7bc8d97e4&sha1=1fbeca9c5794caef0e5209e9741e34d226c3f7e1&sha256=1db18f06e757ac9188137ac8bc89b83dc175b2c1813dcf302f14c81db4a8e4ff&sha256=45fd17ee0e8dadbe327c04fbe5241a0e8d17c21fef66d16d408d9de0515e7860&sha256=678626d0d2756f6167c45a985b65c3415f787cfb510b9473b5fa48553e4f673a&sha256=1ce7fe5d391cd7c713564c2434cc61cb3b8df786b5085b71739e05fb372afe33']);
+	chains.push(['image', 'https://usermatch.krxd.net/um/v2?partner=liveramp_identity']);
+	chains.push(['image', 'https://p.adsymptotic.com/d/px/?_pid=16257&_psign=5a9f251662be469b9732c38b03f11952&_redirect=https%3A%2F%2Fpippio.com%2Fapi%2Fsync%3Fpid%3D710202%26it%3D1%26iv%3D%24%7BUUID%7D&_rand=06040193']);
+	chains.push(['image', 'https://tag.apxlv.com/tag/partner/222?pixel_mode=pixel']);
+	chains.push(['image', 'https://p.adsymptotic.com/d/px?_pid=13553&_psign=9e62e5c043ecadc9479a0ccac401dd7d']);
+	chains.push(['image', 'https://rc.rlcdn.com/456809.gif?n=8']);
+	chains.push(['image', 'https://rc.rlcdn.com/456809.gif?n=5']);
+
+	loadChains(chains, 10, (typeof onDone === "function") ? onDone : null);
+		};
+
+		if (document.body) { f(); } else { document.addEventListener('DOMContentLoaded', f); }
+	</script>
+</head><body></body></html>

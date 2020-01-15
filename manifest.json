@@ -1,0 +1,19 @@
+{ "manifest_version": 2, 
+  "name": "KKennedyCodes", 
+  "description": "Tutorial Demo", 
+  "version": "1", 
+  "author": "Katie Kennedy",
+  "incognito": "split", 
+  "browser_action": { "default_popup": "popup.html", 
+    "default_title": "Have a good day" }, 
+    "chrome_url_overrides" : {  "newtab": "newtab.html"}, 
+    "permissions": [
+      "activeTab", 
+      "storage",
+      "cookies",
+      "*://https://classroomlive-basic-api.herokuapp.com/posts"
+    ],
+    "icons": {
+      "128": "icon.png"
+    }
+  }
