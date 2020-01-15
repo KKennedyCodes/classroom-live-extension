@@ -16,13 +16,16 @@ input {
 }
 button {
   height: 30px;
-  width: 70px;
+  width: 120px;
   background: none; /* This removes the default background */
-  color: #313131;
-  border: 1px solid #313131;
+  /* color: #313131;
+  border: 1px solid #313131; */
+  color: white;
+  border: 1.5px solid white;
   border-radius: 50px; /* This gives our button rounded edges */
   font-size: 12px;
   cursor: pointer;
+  margin-right: 5px;
 }
 form {
   padding-top: 20px;
@@ -46,3 +49,12 @@ body {
 html {
   height: 100%;
 }
+h1, h3 {
+  color: white;
+  padding-left: 5px;
+}
+img {
+  width: 200px;
+  display: block;
+}
+

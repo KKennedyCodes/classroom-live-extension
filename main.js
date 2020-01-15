@@ -54,7 +54,7 @@ function changeName() {
 
 function changeColor() {
   if (userStatus == "working") {
-    document.body.style.background = "Chartreuse";
+    document.body.style.background = "MediumSeaGreen";
   } else if (userStatus == "stuck") {
     document.body.style.background = "FireBrick";
   } else if (userStatus == "question") {
@@ -92,46 +92,61 @@ document.getElementById("name-form").addEventListener('submit', function(e) {
 });
 
 function getGreeting() {
-  document.getElementById("greeting").innerHTML  = `Hello, ${userName}. Your status is ${userStatus}.`;
+  if (userStatus == "not submitted") {
+    document.getElementById("greeting").innerHTML  = `Hello, ${userName}.  Your status is ${userStatus}.`;
+  }
+  else{
+    document.getElementById("greeting").innerHTML  = `Hello, ${userName}.  Your status is ${userStatus} for session ${userSession}.`;
+  }
 }
 
 getGreeting();
 changeColor();
 
-// chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-//   chrome.tabs.sendMessage(tabs[0].id, {data: text}, function(response) {
-//       $('#status').html('changed data in page');
-//       console.log('success');
-//   });
-// });
 
-// function postStatus(){
-//   const Url = 'https://classroomlive-basic-api.herokuapp.com/posts';
-//   const Data = {
-//     username: userName,
-//     status: userStatus,
-//     comment: userComment,
-//     session_id: userSession
-//   };
+// New Content
+chrome.runtime.sendMessage({
+  'title': document.title,
+  'url': window.location.href,
+  'summary': window.location.href
+});
 
-//   const othePram={
-//     headers:{
-//       "content-type":"application/json: charset=UTF-8"
-//     },
-//     body:Data,
-//     method:"POST"
-//     };
+// Create port.
+let port = chrome.runtime.connect({
+  name: "page"
+});
 
-//     fetch(Url,othePram)
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .then((myJson) =>{
-//       console.log(myJson);
-//     });
-//   }
-    // }
-    // .then(data=>(return data.json()})
-    // .then(res=>(console.log(res)})
-    // .catch(error=>console.log(error))
+// Listen for messages.
+port.onMessage.addListener(function (message) {
+  if (message.name === "query") {
+    let objectPath = message.query;
+    let parts = objectPath.split('.');
+    let obj = window;
+    let error = false;
+    // Get value.
+    for (var i = 0; i < parts.length; i++) {
+      let part = parts[i];
+      // Check if in current object or prototype chain.
+      if (part in obj) {
+        obj = obj[part];
+      } else {
+        error = true;
+        break;
+      }
+    }
 
+    if (error) {
+      port.postMessage({
+        name: "query_error",
+        query: objectPath,
+        reason: "window." + parts.slice(0, i + 1).join('.')
+      });
+    } else {
+      port.postMessage({
+        name: "query_response",
+        query: objectPath,
+        value: obj
+      });
+    }
+  }
+});

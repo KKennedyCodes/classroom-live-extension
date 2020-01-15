@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html>
+	<head>
+		<style type="text/css">
+			#mainPopup {
+				padding: 10px;
+				height: 300px;
+				width: 200px;
+				font-family: Helvetica, Ubuntu, Arial, sans-serif;
+			}
+			h1 {
+				font-size: 2em;
+			}
+		</style>
+	 <link rel="stylesheet" href="main.css"/>
+	</head>
+	
+	<body>
+<div id="mainPopup">
+  <img src="https://live.staticflickr.com/65535/49296000551_fe05df3618_b.jpg" className="dropTitle" alt="ClassroomLogo" /><script async src="//embedr.flickr.com/assets/client-code.js" charSet="utf-8"></script>
+  <h3>Submit Status</h3>
+	<div class="form-style-5" id="form">
+		<form class="name-form" id="name-form" action="#" method='POST'>
+      <input class="name-input" type="text"
+        id="name-input" placeholder="Type your name here..."><br><br>
+      <input class="name-input" type="text"
+        id="comment-input" placeholder="Type your comment..."><br><br>
+        <select name="status" id="status-input">
+          <option value="stuck">Stuck</option>
+          <option value="question">Question</option>
+          <option value="working">Working</option>
+          <option value="done">Done</option>
+        </select><br><br>
+        <input class="name-input" type="text"
+        id="session-input" placeholder="Type your session ID...">
+        <br><br>
+      <button type="submit" class="name-button">Submit</button>
+   </form>
+	 </div>
+ 
+	 <!-- To-do item list -->
+	 <div class="form-style-5">
+		<ul id="list">
+ 
+		</ul>
+	 </div>
+	</div>
+	<script src="popup.js"></script>
+</body>
+</html>
+
+
