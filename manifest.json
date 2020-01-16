@@ -12,13 +12,14 @@
       "activeTab", 
       "storage",
       "cookies",
-      "*://https://classroomlive-basic-api.herokuapp.com/posts"
+      "*://https://classroomlive-basic-api.herokuapp.com/posts",
+      "declarativeContent"
     ],
     "icons": {
       "128": "icon.png"
     },
     "background": {
-      "scripts": ["main.js"],
-      "persistent": false
+      "scripts": ["main.js", "popup.js"],
+      "persistent": true
     }
   }

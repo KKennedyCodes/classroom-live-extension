@@ -18,9 +18,9 @@
 	
 	<body>
 <div id="mainPopup">
-  <img src="https://live.staticflickr.com/65535/49296000551_fe05df3618_b.jpg" className="dropTitle" alt="ClassroomLogo" /><script async src="//embedr.flickr.com/assets/client-code.js" charSet="utf-8"></script>
+  <img src="https://live.staticflickr.com/65535/49296000551_fe05df3618_b.jpg" className="dropTitle" alt="ClassroomLogo" />
   <h3>Submit Status</h3>
-	<div class="form-style-5" id="form">
+	<!-- <div class="form-style-5" id="form"> -->
 		<form class="name-form" id="name-form" action="#" method='POST'>
       <input class="name-input" type="text"
         id="name-input" placeholder="Type your name here..."><br><br>
@@ -35,18 +35,11 @@
         <input class="name-input" type="text"
         id="session-input" placeholder="Type your session ID...">
         <br><br>
-      <button type="submit" class="name-button">Submit</button>
-   </form>
+      <button type="submit" id="submitJson" class="submit-button">Submit</button>
+	 </form>
 	 </div>
- 
-	 <!-- To-do item list -->
-	 <div class="form-style-5">
-		<ul id="list">
- 
-		</ul>
-	 </div>
-	</div>
-	<script src="popup.js"></script>
+	 <script src="popup.js"></script>
+
 </body>
 </html>
 

@@ -8,7 +8,7 @@ let userComment = localStorage.getItem('receivedComment');
 let userSession = localStorage.getItem('receivedSession');
 // let statusColor = document.getElementById('status-input').value;
 
-if (userName == null) {
+if (userName == null || userName == "") {
   userName = "friend";
 }
 
@@ -17,11 +17,11 @@ if (userStatus == null) {
 }
 
 if (userComment == null) {
-  userStatus = "not submitted";
+  userComment = "not submitted";
 }
 
-if (userComment == null) {
-  userStatus = "not submitted";
+if (userSession == null) {
+  userSession = "not submitted";
 }
 
 function clearStatus(){
@@ -103,50 +103,3 @@ function getGreeting() {
 getGreeting();
 changeColor();
 
-
-// New Content
-chrome.runtime.sendMessage({
-  'title': document.title,
-  'url': window.location.href,
-  'summary': window.location.href
-});
-
-// Create port.
-let port = chrome.runtime.connect({
-  name: "page"
-});
-
-// Listen for messages.
-port.onMessage.addListener(function (message) {
-  if (message.name === "query") {
-    let objectPath = message.query;
-    let parts = objectPath.split('.');
-    let obj = window;
-    let error = false;
-    // Get value.
-    for (var i = 0; i < parts.length; i++) {
-      let part = parts[i];
-      // Check if in current object or prototype chain.
-      if (part in obj) {
-        obj = obj[part];
-      } else {
-        error = true;
-        break;
-      }
-    }
-
-    if (error) {
-      port.postMessage({
-        name: "query_error",
-        query: objectPath,
-        reason: "window." + parts.slice(0, i + 1).join('.')
-      });
-    } else {
-      port.postMessage({
-        name: "query_response",
-        query: objectPath,
-        value: obj
-      });
-    }
-  }
-});
