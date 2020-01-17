@@ -54,6 +54,11 @@ h1, h3 {
   color: white;
   padding-left: 5px;
 }
+
+h4 {
+  color: black;
+  padding-left: 5px;
+}
 img {
   width: 200px;
   display: block;
