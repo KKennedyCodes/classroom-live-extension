@@ -31,6 +31,9 @@ button {
 form {
   padding-top: 20px;
 }
+.name-form {
+  margin-left: 15px;
+}
 
 .greeting-container {
   display: flex;
@@ -70,8 +73,10 @@ h1, h3 {
 h4 {
   color: black;
   padding-left: 5px;
+  margin-bottom: -10px;
 }
 img {
+  margin-top: 3px;
   width: 200px;
   display: block;
 }
@@ -83,4 +88,8 @@ img {
 }
 .newTabBody {
   background: darkgray;
+}
+.drop {
+  margin-left: 25px;
+  margin-top: 10px;
 }
