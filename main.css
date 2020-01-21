@@ -42,6 +42,18 @@ form {
   font-size: 60px;
   color: #fff;
 }
+.newTabHeader {
+  background-color: white;
+  width: 100vw;
+  margin: 0 auto; width: 100%;
+  margin: 0;
+  padding: 0;
+  max-width:100%;
+  position: relative;
+  border: 20px solid white;
+  margin-top: -10px;
+  margin-left: -10px;
+}
 body {
   background-color: white;
   /* background-color: #c670ca; */
@@ -68,4 +80,7 @@ img {
   color: white;
   border: 1.5px solid black;
 
+}
+.newTabBody {
+  background: darkgray;
 }

@@ -24,6 +24,7 @@ if (userSession == null) {
   userSession = "not submitted";
 }
 
+
 function clearStatus(){
   userStatus = "not submitted";
   getGreeting();
@@ -93,10 +94,10 @@ document.getElementById("name-form").addEventListener('submit', function(e) {
 
 function getGreeting() {
   if (userStatus == "not submitted") {
-    document.getElementById("greeting").innerHTML  = `Hello, ${userName}.  Your status is ${userStatus}.`;
+    document.getElementById("greeting").innerHTML  = `Hello, ${userName}.\nYour status is ${userStatus}.`;
   }
   else{
-    document.getElementById("greeting").innerHTML  = `Hello, ${userName}.  Your status is ${userStatus} for session ${userSession}.`;
+    document.getElementById("greeting").innerHTML  = `Hello, ${userName}.\nYour status is ${userStatus} for session ${userSession}.`;
   }
 }
 
